@@ -10,17 +10,29 @@ $(document).ready(function () {
 
     function renderCities() {
         cityList.empty();
-
-        // Render a new li for each city
         for (var i = 0; i < cities.length; i++) {
             city = cities[i];
             // console.log(city);
-            var li = $("<li>");
+            var li = $("<a>");
+            li.attr("href", "#");
             li.text(city);
-            li.addClass("list-group-item");
+            li.addClass("list-group-item list-group-item-action");
             li.attr("id", "item" + i);
+            li.attr("data-index", i);
+
             cityList.prepend(li);
         }
+
+        // Render a new li for each city
+        // for (var i = 0; i < cities.length; i++) {
+        //     city = cities[i];
+        //     // console.log(city);
+        //     var li = $("<li>");
+        //     li.text(city);
+        //     li.addClass("list-group-item");
+        //     li.attr("id", "item" + i);
+        //     cityList.prepend(li);
+        // }
     }
 
     function init() {
@@ -64,8 +76,29 @@ $(document).ready(function () {
         renderCities();
         getWeather(cityInput);
         // cityInput = "";
-
     });
+    $("#list").on("click", function(event) {
+        var element = event.target;
+
+        // If that element is a button...
+        if (element.matches("a") === true) {
+            // Get its data-index value and remove the todo element from the list
+            var index = element.getAttribute("data-index");
+            var cityClicked = cities[index];
+            console.log(cityClicked);
+            $("#input").val(cityClicked);
+
+            // Add new todoText to todos array, clear the input
+            cities.push(cityClicked);
+
+            // Store updated todos in localStorage, re-render the list
+            storeCities();
+            renderCities();
+            getWeather(cityClicked);
+        }
+    });
+
+
 
     function getWeather(cityInput) {
         // This is our API key
@@ -144,6 +177,7 @@ $(document).ready(function () {
                         console.log(response);
                         //day1
                         $(".dat").text("(" + moment().format('D/MM/YYYY') + ")");
+                        $(".icon").empty();
 
                         $(".icon").append(
                             $("<img>").attr("src", `http://openweathermap.org/img/wn/${response.list[0].weather[0].icon}@2x.png`),
