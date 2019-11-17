@@ -8,21 +8,23 @@
     <title>Weather dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="Assets/style.css">
 </head>
 
 <body>
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1>Weather Dashboard</h1>
     </div>
     <div class="row">
         <div class="col-4">
             <div class="card">
-                <h5 class="card-title">Search for a City: </h5>
+                <h5 class="card-title ml-3">Search for a City: </h5>
                 <div class="card-body">
                     <form>
                         <input id="input" />
-                        <button id="search">Go</button>
+                        <!-- <button id="search">Go</button> -->
+                        <button id="search"><i class="material-icons">search</i></button>
                     </form>
                     <br>
                     <ul class="list-group list-group-flush" id="list">
@@ -45,7 +47,7 @@
             <div class="row" id="days">
 
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body forecast">
                         <div class="dat date"></div>
                         <div class="icon"></div>
                         <div class="tem"></div>
@@ -53,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body forecast">
                         <div class="dat2 date"></div>
                         <div class="icon2"></div>
                         <div class="tem2"></div>
@@ -61,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body forecast">
                         <div class="dat3 date"></div>
                         <div class="icon3"></div>
                         <div class="tem3"></div>
@@ -69,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body forecast">
                         <div class="dat4 date"></div>
                         <div class="icon4"></div>
                         <div class="tem4"></div>
@@ -77,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body forecast">
                         <div class="dat5 date"></div>
                         <div class="icon5"></div>
                         <div class="tem5"></div>

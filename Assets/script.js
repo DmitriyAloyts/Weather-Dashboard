@@ -138,8 +138,8 @@ $(document).ready(function () {
                 $(".wind").text("Wind Speed: " + response.wind.speed);
                 lat = response.coord.lat;
                 lon = response.coord.lon;
-                // console.log("lat:" + lat);
-                // console.log("lon:" + lon);
+                console.log("lat:" + lat);
+                console.log("lon:" + lon);
                 var uviqueryURL = "https://api.openweathermap.org/data/2.5/uvi?" +
                     "lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
                 $.ajax({
@@ -148,6 +148,7 @@ $(document).ready(function () {
                 })
                     // We store all of the retrieved data inside of an object called "response"
                     .then(function (response) {
+                console.log("UV index: " + response);
 
                         $(".uvind").text("UV index: " + response.value);
 

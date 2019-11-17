@@ -30,6 +30,11 @@ button {
 .date{
   font-weight: bold;
 }
+.forecast{
+  background:blue;
+  color:white;
+} 
+}
 /* .uvind {
 background: red;
 } */
